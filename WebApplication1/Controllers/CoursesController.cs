@@ -18,6 +18,14 @@ namespace WebApplication1.Controllers
         }
         // GET: Courses
         [Authorize]
+        public ActionResult Create()
+        {
+            var viewModel = new CourseViewModel 
+            {
+                Categories = _dbContext.Categories.ToList()
+            };
+            return View(viewModel);
+        }
         [HttpPost]
         public ActionResult Create(CourseViewModel viewModel)
         {
