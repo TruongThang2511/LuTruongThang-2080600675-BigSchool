@@ -17,7 +17,7 @@ namespace WebApplication1.Models
         [StringLength(255)]
         public string Place { get; set; }
         public DateTime DateTime { get; set; }
-        public string Category { get; set; }
+        public Category Category { get; set; }
         [Required]
         public byte CategoryId { get; set; }
     }
