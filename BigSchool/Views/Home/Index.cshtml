@@ -23,13 +23,15 @@
                             <button class="btn btn-default btn-sm js-toggle-follow" data-user-id="@course.LecturerId">Follow</button>
                         }
                     </span>
-                    <span class="category">
-                        @course.Category.Name
-                    </span>
-                    @if (Model.ShowAction)
-                    {
-                        <button data-course-id="@course.Id" class="btn btn-default btn-sm js-toggle-attendance">Going?</button>
-                    }
+                    <p>
+                        <span class="category">
+                            @course.Category.Name
+                        </span>
+                        @if (Model.ShowAction)
+                        {
+                            <button data-course-id="@course.Id" class="btn btn-default btn-sm js-toggle-attendance">Going?</button>
+                        }
+                    </p>
                 </div>
             </li>
         }
@@ -56,7 +58,10 @@
                 var button = $(e.target);
                 $.post("/api/followings", { followeeId: button.attr("data-user-id") })
                     .done(function () {
-                        button.text("Following");
+                        button
+                            .removeClass("btn btn-default")
+                            .addClass("btn-info")
+                            .text("Following");
                     })
                     .fail(function () {
                         alert("Something failed");

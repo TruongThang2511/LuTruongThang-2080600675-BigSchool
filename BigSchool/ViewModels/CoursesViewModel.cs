@@ -10,6 +10,7 @@ namespace BigSchool.ViewModels
     public class CoursesViewModel
     {
         public IEnumerable<Course> UpcommingCourses { get; set; }
+        public IEnumerable<Following> UpcommingFollowings { get; set; }
         public bool ShowAction { get; set; }
     }
 }
